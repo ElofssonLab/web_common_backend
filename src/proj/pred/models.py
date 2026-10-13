@@ -1,5 +1,4 @@
 from django.db import models
-from django import forms
 
 from django.core.validators import MinLengthValidator, MaxLengthValidator 
 
@@ -10,29 +9,6 @@ class Query(models.Model):# {{{
     seqname = models.CharField(max_length=100)
     submit_date = models.DateTimeField('date submitted')# }}}
 
-class SubmissionForm_bak(forms.Form):# {{{
-    """
-    Defining the form to submit queries
-    """
-    rawseq = forms.CharField(label='', max_length=100000,
-            widget=forms.Textarea(attrs={'cols': 62, 'rows': 10}),
-            required=False)
-    seqfile = forms.FileField(label="Alternatively, upload a text file in FASTA format upto 150 KB", required=False)
-    jobname = forms.CharField(label='Job name (optional)', max_length=100, required=False)
-    email = forms.CharField(label='Email (optional)', max_length=100, required=False)
-
-# }}}
-class SubmissionForm(forms.Form):# {{{
-    """
-    Defining the form to submit queries
-    """
-    rawseq = forms.CharField(label='', max_length=100000,
-            widget=forms.Textarea(attrs={'cols': 62, 'rows': 10}),
-            required=False)
-    seqfile = forms.FileField(label="Alternatively, upload a text file in FASTA format upto 150 KB", required=False)
-    jobname = forms.CharField(label='Job name (optional)', max_length=100, required=False)
-    email = forms.EmailField(label='Email (recommended for batch submissions)', max_length=100, required=False)
-# }}}
 class FieldContainer(models.Model):# {{{
 # This class is modified from the Spyne example written by BJ Cardon
 # Copyright BJ Cardon <bj dot car dot don at gmail dot com>,

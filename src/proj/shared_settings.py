@@ -42,7 +42,6 @@ ROOT_URLCONF = 'proj.urls'
 
 WSGI_APPLICATION = 'proj.wsgi.application'
 
-LOGIN_REDIRECT_URL = '/pred'
 LOGOUT_REDIRECT_URL = '/pred/login'
 
 # Database
@@ -58,10 +57,7 @@ DATABASES = {
 TEMPLATES = [ 
     {   
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'pred', 'templates'),
-            os.path.join(BASE_DIR, 'pred', 'static'),
-            ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': True,
