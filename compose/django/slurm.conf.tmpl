@@ -1,0 +1,22 @@
+ClusterName=webserver
+SlurmctldHost=${NODE_NAME}
+MpiDefault=none
+ProctrackType=proctrack/linuxproc
+TaskPlugin=task/none
+SwitchType=switch/none
+ReturnToService=2
+SlurmUser=slurm
+SlurmctldPidFile=/run/slurm/slurmctld.pid
+SlurmdPidFile=/run/slurm/slurmd.pid
+SlurmdSpoolDir=/var/spool/slurmd
+StateSaveLocation=/var/spool/slurmctld
+SlurmctldLogFile=/var/log/slurm/slurmctld.log
+SlurmdLogFile=/var/log/slurm/slurmd.log
+SchedulerType=sched/backfill
+SelectType=select/cons_tres
+SelectTypeParameters=CR_Core
+AccountingStorageType=accounting_storage/none
+JobAcctGatherType=jobacct_gather/none
+JobCompType=jobcomp/none
+NodeName=${NODE_NAME} CPUs=${NODE_CPUS} RealMemory=${NODE_MEM} State=UNKNOWN
+PartitionName=main Nodes=${NODE_NAME} Default=YES MaxTime=INFINITE State=UP

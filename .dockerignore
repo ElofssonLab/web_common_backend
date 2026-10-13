@@ -1,0 +1,11 @@
+.git
+old
+docs
+infra
+misc
+**/__pycache__
+*.sqlite3
+src/proj/pred/static/result
+src/proj/pred/static/tmp
+src/proj/pred/static/md5
+src/proj/pred/static/log

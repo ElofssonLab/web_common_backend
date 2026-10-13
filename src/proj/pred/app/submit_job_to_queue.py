@@ -113,7 +113,8 @@ def SubmitJobToQueue(jobid, datapath, outpath, numseq, numseq_this_user, email, 
 
     webcom.loginfo("priority=%d"%(priority), g_params['debugfile'])
 
-    if 'queue_method' in query_para and query_para['queue_method'] == 'slurm':
+    queue_method = query_para.get('queue_method', os.environ.get('QUEUE_METHOD', 'suq'))
+    if queue_method == 'slurm':
         st1 = SubmitSlurmJob(datapath, outpath, priority, scriptfile)
     else:
         st1 = SubmitSuqJob(suq_basedir, datapath, outpath, priority, scriptfile)
